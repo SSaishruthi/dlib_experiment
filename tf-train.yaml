@@ -1,9 +1,9 @@
 model_definition:
-  name: tf-mnist-showtest1
+  name: tf-image-completer
   author:
-    name: DL Developer
+    name: DL developer
     email: ""
-  description: Simple MNIST model implemented in TF
+  description: Tensorflow implementation of DCGAN
   framework:
     name: tensorflow
     version: "1.5"
@@ -11,27 +11,24 @@ model_definition:
       name: python
       version: "3.5"
   execution:
-    command: python3 convolutional_network.py --trainImagesFile ${DATA_DIR}/train-images-idx3-ubyte.gz
-      --trainLabelsFile ${DATA_DIR}/train-labels-idx1-ubyte.gz --testImagesFile ${DATA_DIR}/t10k-images-idx3-ubyte.gz
-      --testLabelsFile ${DATA_DIR}/t10k-labels-idx1-ubyte.gz --learningRate 0.001
-      --trainingIters 20000
+    command: ./train-dcgan.py --trainImagesFile ${DATA_DIR}/aligned --epoch 20
     compute_configuration:
       name: k80
 training_data_reference:
   name: training_data_reference_name
   connection:
-    endpoint_url: "https://s3-api.us-geo.objectstorage.service.networklayer.com"
-    access_key_id: "722432c254bc4eaa96e05897bf2779e2"
-    secret_access_key: "286965ac10ecd4de8b44306288c7f5a3e3cf81976a03075c"
+    endpoint_url: "https://cos-service.bluemix.net/endpoints"
+    access_key_id: "4aaf2a0c372241fdb72c4dfcb08a467d"
+    secret_access_key: "55bb29ca38e1a53f469abfa9fcac8d52831a9aaf529a338e"
   source:
-    bucket: training-data
+    bucket: image-completer-train
   type: s3
 training_results_reference:
   name: training_results_reference_name
   connection:
-    endpoint_url: "https://s3-api.us-geo.objectstorage.service.networklayer.com"
-    access_key_id: "722432c254bc4eaa96e05897bf2779e2"
-    secret_access_key: "286965ac10ecd4de8b44306288c7f5a3e3cf81976a03075c"
+    endpoint_url: "https://cos-service.bluemix.net/endpoints"
+    access_key_id: "4aaf2a0c372241fdb72c4dfcb08a467d"
+    secret_access_key: "55bb29ca38e1a53f469abfa9fcac8d52831a9aaf529a338e"
   target:
-    bucket: training-results
+    bucket: image-completer-asset
   type: s3
