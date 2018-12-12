@@ -17,7 +17,7 @@ model_definition:
 training_data_reference:
   name: training_data_reference_name
   connection:
-    endpoint_url: "https://cos-service.bluemix.net/endpoints"
+    endpoint_url: "s3.us-east.objectstorage.softlayer.net"
     access_key_id: "4aaf2a0c372241fdb72c4dfcb08a467d"
     secret_access_key: "55bb29ca38e1a53f469abfa9fcac8d52831a9aaf529a338e"
   source:
@@ -26,7 +26,7 @@ training_data_reference:
 training_results_reference:
   name: training_results_reference_name
   connection:
-    endpoint_url: "https://cos-service.bluemix.net/endpoints"
+    endpoint_url: "s3.us-east.objectstorage.softlayer.net"
     access_key_id: "4aaf2a0c372241fdb72c4dfcb08a467d"
     secret_access_key: "55bb29ca38e1a53f469abfa9fcac8d52831a9aaf529a338e"
   target:
