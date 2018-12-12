@@ -11,7 +11,7 @@ model_definition:
       name: python
       version: "3.5"
   execution:
-    command: python train-dcgan.py --trainImagesFile ${DATA_DIR}/aligned --epoch 20
+    command: ./train-dcgan.py --dataset ${DATA_DIR}/aligned --epoch 20
     compute_configuration:
       name: k80
 training_data_reference:
