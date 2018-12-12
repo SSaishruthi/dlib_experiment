@@ -2,7 +2,7 @@ model_definition:
   name: tf-image-completer
   author:
     name: DL developer
-    email: ""
+    email: saishruthi.tn@gmail.com
   description: Tensorflow implementation of DCGAN
   framework:
     name: tensorflow
